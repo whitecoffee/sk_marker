@@ -1,0 +1,33 @@
+当使用marker做模型声明并发布tf，marker_ls接受其他tf并改变模型尺寸时，会出现如下错误
+Invalid argument passed to canTransform argument source_frame in tf2 frame_ids cannot be empty
+可能是因为两个文件都以相同的频率在进行模型的声明
+
+有两种解决方案
+1. marker文件一次性定义后不再定义
+2. 去掉marker_ls，在marker中直接接受其他tf
+
+-------------------------------------------------------------------------------------------------
+
+根据时间进行变化，时间戳要定为ROS::Time::now()
+
+监听tf的时间戳要定为ROS::Time(0)，不然会出现如下错误
+[ERROR] [1527985510.084914639]: Lookup would require extrapolation into the future.  Requested time 1527985510.084782991 but the latest data is at time 1527985510.079458400, when looking up transform from frame [skeleton_frame] to frame [camera_frame]
+即，存储最新的时间戳(0)是慢于现在的时间戳now()
+
+marker中有三个时间戳，listener,maker,broadcaster
+
+-------------------------------------------------------------------------------------------------
+
+tf::Quaternion.setRPY()；
+transform.setRotation(quaternion)；
+
+-------------------------------------------------------------------------------------------------
+
+Arrow 本身是沿着X轴 
+当指定pose时， scale.x是箭头的长度，scale.y是箭身长轴长，scale.z是箭身短轴长
+
+当指定起始点，终止点时，scale.x是箭身直径, scale.y是箭头直径. scale.z是箭头的长度(如果设为0,则会按默认箭头长度). 
+
+-------------------------------------------------------------------------------------------------
+
+每个结点最多能实时发出 两个带有坐标系跟踪的marker
