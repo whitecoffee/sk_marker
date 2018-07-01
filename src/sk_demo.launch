@@ -1,14 +1,10 @@
 <!-- launch file -->
 <launch>
-
-    <!-- Test skeleton frame -->
-    <!-- <node pkg="sk_marker" type="skeleton_br" name="skeleton_br" /> -->
-
-    <!-- <node pkg="rviz" type="rviz" name="rviz" /> -->
+    <node pkg="rviz" type="rviz" name="rviz" />
 
     <node pkg="sk_marker" type="right_upper_arm" name="right_upper_arm" />
     <node pkg="sk_marker" type="right_fore_arm" name="right_fore_arm" />
-    <!-- <node pkg="sk_marker" type="left_upper_arm" name="left_upper_arm" />
+    <node pkg="sk_marker" type="left_upper_arm" name="left_upper_arm" />
     <node pkg="sk_marker" type="left_fore_arm" name="left_fore_arm" />
 
     <node pkg="sk_marker" type="right_upper_leg" name="right_upper_leg" />
@@ -19,6 +15,6 @@
     <node pkg="sk_marker" type="hands" name="hands" />
     <node pkg="sk_marker" type="feet" name="feet" />
     <node pkg="sk_marker" type="torso" name="torso" />
-    <node pkg="sk_marker" type="head" name="head" /> -->
+    <node pkg="sk_marker" type="head" name="head" />
 
 </launch>
