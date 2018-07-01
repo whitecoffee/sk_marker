@@ -17,9 +17,7 @@ Enter the following code in linux terminal.
 ```
 
 Then you will get the similar image as following in your rviz environment
-![The result you should see][0]
-
-[id]: /image/result.jpg
+![The result you should see](https://raw.githubusercontent.com/whitecoffee/sk_marker/master/image/model.png)
 
 ## Costumize human model
 We build this model with simplest clinder like shape. 
